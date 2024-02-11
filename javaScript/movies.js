@@ -1,7 +1,7 @@
 "use strict";
 
 //1
-let numberOfFilms = prompt("How many films have you already watched?","");
+const numberOfFilms = +prompt("How many films have you already watched?","");
 
 //2
 const personalMovieDB = {
@@ -12,16 +12,16 @@ const personalMovieDB = {
 	private : false
 };
 
-//3
-let oneOfLastMovies = prompt("One of the last movies you watched?","");
-let rate = prompt("How much did you rate it?");
+//3 Задайте пользователю по два раза вопросы 
+const oneOfLastMovies = prompt("One of the last movies you watched?",""),
+	rate = prompt("How much did you rate it?"),
+	oneOfLastMovies2 = prompt("One of the last movies you watched?",""),
+	rate2 = prompt("How much did you rate it?");
 
-console.log(oneOfLastMovies);
-console.log(rate);
 
-personalMovieDB.movies[{oneOfLastMovies : rate}];
+personalMovieDB.movies[oneOfLastMovies] = rate; //записываю output в обьект
+personalMovieDB.movies[oneOfLastMovies2] = rate2; //записываю output в обьект
 
-console.log(oneOfLastMovies);
-console.log(rate);
-
-personalMovieDB.movies[{oneOfLastMovies : rate}];
+//git add -A добавление всех новых файлов
+//git commit -a -m"комент"" 
+console.log(personalMovieDB);
