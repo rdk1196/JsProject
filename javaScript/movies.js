@@ -12,38 +12,36 @@ const personalMovieDB = {
 	private : false
 };
 
-//3 Задайте пользователю по два раза вопросы 
+//Practice 2 1&2
 
-
-
-
-const oneOfLastMovies = prompt("One of the last movies you watched?",""),
-	rate = prompt("How much did you rate it?"),
-	oneOfLastMovies2 = prompt("One of the last movies you watched?",""),
-	rate2 = prompt("How much did you rate it?");
-
-	console.log(oneOfLastMovies);
-//1&2
-	let validation = false;
-
-	while (validation === false){
-		oneOfLastMovies,
-		rate;
-		if ((oneOfLastMovies === "" || rate === "" || (oneOfLastMovies === "" && rate === "")) || oneOfLastMovies.length > 50){
-			oneOfLastMovies,
-			rate;
-		}
-		else{
-			validation = true;
-		}
-		
+	for (let i = 0; i < 2; i++){
+		const oneOfLastMovies = prompt("One of the last movies you watched?",""),
+			rate = prompt("How much did you rate it?");
+		personalMovieDB.movies[oneOfLastMovies] = rate;
 	}
+console.log(personalMovieDB);
+	
 
 
-personalMovieDB.movies[oneOfLastMovies] = rate; //записываю output в обьект
-personalMovieDB.movies[oneOfLastMovies2] = rate2; //записываю output в обьект
+
+//3
+// if (personalMovieDB.count < 10){
+// 	console.log("Просмотерно мало фильмов");
+// }
+// else if (personalMovieDB.count > 10 || personalMovieDB.count < 30){
+// 	console.log("Вы классический зритель");
+// }
+// else if (personalMovieDB.count > 30){
+// 	console.log("Вы киноман");
+// }
+// else{
+// 	console.log("Произошла ошибка");
+// }
+
+
+
 
 //git add -A добавление всех новых файлов
 //git commit -a -m"комент"" 
-console.log(personalMovieDB);
+
 
