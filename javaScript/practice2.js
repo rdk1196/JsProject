@@ -3,6 +3,15 @@
 "use strict";
 let numberOfFilms;
 //practice 3
+
+function start () {
+   
+    while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)){ //валидации . Если арг пустая сторка или 
+        numberOfFilms = +prompt("How many films have you already watched?","");//арг null(отмена) или не число продолжай цикл
+        personalMovieDB.count = numberOfFilms;
+        console.log(personalMovieDB.count);
+    }
+}
 const personalMovieDB = {
 	count : numberOfFilms,
 	movies : {},
@@ -10,15 +19,6 @@ const personalMovieDB = {
 	genres : [],
 	private : false
 };
-
-function start () {
-    numberOfFilms = prompt("How many films have you already watched?","");
-
-    while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)){ //валидации . Если арг пустая сторка или 
-        numberOfFilms = prompt("How many films have you already watched?","");//арг null(отмена) или не число продолжай цикл
-        personalMovieDB.count = numberOfFilms;
-    }
-}
 
 
 function rememberMyFilms(){
@@ -41,10 +41,10 @@ function detectPersonalLevel(){
     if (personalMovieDB.count < 10){
         console.log("Few films watched");
     }
-    else if (personalMovieDB.count > 10 && personalMovieDB.count < 30){
+    else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30){
         console.log("You're a great viewer");
     }
-    else if (personalMovieDB.count > 30){
+    else if (personalMovieDB.count >= 30){
         console.log("you a movie buff");
     }
     else{
@@ -53,16 +53,15 @@ function detectPersonalLevel(){
 
 }
 
-function showMyDB(){
-    if (personalMovieDB.private === false){
+function showMyDB(hidden){
+    if (!hidden){
         console.log(personalMovieDB);
     }
 }
 
 function writeYourGeners(){
     for (let i = 1;i < 4; i++){
-        const yourFavoriteGenres = prompt(`What your favorite gener on number ${i}`);
-        personalMovieDB.genres[i-1] = yourFavoriteGenres;
+        personalMovieDB.genres[i-1] = prompt(`What your favorite gener on number ${i}`);
     }
     
 
@@ -72,7 +71,7 @@ start();
 rememberMyFilms();
 detectPersonalLevel();
 writeYourGeners();
-showMyDB();
+showMyDB(personalMovieDB.private);
 
 
 
